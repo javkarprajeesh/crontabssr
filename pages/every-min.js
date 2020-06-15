@@ -5,16 +5,9 @@ import { isValidCron } from 'cron-validator'
 import cronstrue from 'cronstrue';
 
 import { useState, useEffect } from 'react';
-
-
-
-
-
-
 let i = 1;
 
 export default function App(props) {
-
   useEffect(() => 
   {
     let url = window.location.href
@@ -56,11 +49,7 @@ export default function App(props) {
   );
   
 const handleClick = () =>{
-
   
-
-  
-
 
   console.log('hello click')
   
@@ -78,12 +67,12 @@ const handleClick = () =>{
 
   //Cron validation
   if (isValidCron(dumExp)){
-
     let stateObj = {
       id: "100"
   };
 
     window.history.replaceState(stateObj,'/',"/#"+dumExp.split(" ").join("_"));
+
 
     document.getElementById('ans').innerHTML = cronstrue.toString(dumExp);
     document.getElementById('anscode').innerHTML = dumExp;
@@ -162,7 +151,7 @@ const handleDw = () => {
     
     return (
       <body>
-         <style jsx>{`@import url('https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap');
+        <style jsx>{`@import url('https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=Exo:ital,wght@1,500&display=swap');
 
@@ -335,9 +324,6 @@ a:hover{
 `}
 </style>
       <div className = "main">
-       
-
-        
         
 
         <div className = "header">
@@ -347,8 +333,8 @@ a:hover{
         
 
         <div className = "answer">
-                <h2 className = "Answer" id = "ans">Enter an expression</h2>
-                <code><h2 className = "code" id = "anscode">" "</h2></code>
+                <h2 className = "Answer" id = "ans">{cronstrue.toString(props.cronExp)}</h2>
+                <code><h2 className = "code" id = "anscode">{props.cronExp}</h2></code>
         
         </div>
         
